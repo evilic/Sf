@@ -11,6 +11,10 @@ import android.widget.Button
  * https://developer.android.com/reference/kotlin/android/view/ViewManager
  *
  * https://developer.android.com/reference/kotlin/android/view/WindowManager.LayoutParams
+ *
+ * LayoutParams是View用来告诉它的父控件如何放置自己的。
+ * 基类LayoutParams（也就是ViewGroup.LayoutParams）仅仅描述了这个View想要的宽度和高度。
+ * 不同ViewGroup的继承类对应着不同的ViewGroup.LayoutParams的子类。
  */
 class FloatWindowManager(var context: Context) {
     var windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager;
@@ -27,6 +31,10 @@ class FloatWindowManager(var context: Context) {
         假设在屏幕上一块区域是由一个Layout占领的，如果将一个View添加到一个Layout中，最好告诉Layout用户期望的布局方式，也就是将一个认可的layoutParams传递进去。
 
         在安卓中动态构建的布局
+         */
+
+        /*
+        那时候在布局文件XML里，写的最多的肯定是 layout_width = "match_parent" 之类的了。
          */
 
         /*
@@ -57,6 +65,15 @@ class FloatWindowManager(var context: Context) {
              *
              * FLAG_NOT_TOUCH_MODAL
              * 当窗口可以获得焦点（没有设置 FLAG_NOT_FOCUSALBE 选项）时，仍然将窗口范围之外的点设备事件（鼠标、触摸屏）发送给后面的窗口处理。否则它将独占所有的点设备事件，而不管它们是不是发生在窗口范围内。
+             * FLAG_LAYOUT_IN_SCREEN
+             * 窗口占满整个屏幕，忽略周围的装饰边框（例如状态栏）。此窗口需考虑到装饰边框的内容。
+             * FLAG_NOT_TOUCHABLE
+             * 不接受触摸屏事件。
+             * FLAG_NOT_FOCUSABLE
+             * 不许获得焦点。
+             * 不能获得按键输入焦点，所以不能向它发送按键或按钮事件。那些时间将发送给它后面的可以获得焦点的窗口。
+             * 此选项还会设置 FLAG_NOT_TOUCH_MODAL选项。
+             * 设置此选项，意味着窗口不能与软输入法进行交互，所以它的Z序独立于任何活动的输入法（换句话说，它可以 全屏显示，如果需要的话，可覆盖输入法窗口）。要修改这一行为，可参考FLAG_ALT_FOCUSALBE_IM选项。
              */
             FLAG_NOT_TOUCH_MODAL or FLAG_NOT_FOCUSABLE,
             // 标识这个window怎么响应事件，怎样的一个透明度，以及一些全屏，锁屏显示等等。

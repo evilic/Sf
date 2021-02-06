@@ -17,6 +17,7 @@ class OrdersActivity : AppCompatActivity() {
     private val tag = "OrderActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 使用 setContentView 方法装载布局文件
         setContentView(R.layout.activity_orders)
 
         // 绑定页面中 orders_recycler_view 的数据源

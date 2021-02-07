@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import me.tsz.m3.sf.bean.OrderInfo
 
 /**
  * https://developer.android.google.cn/guide/topics/ui/layout/recyclerview#plan-your-layout

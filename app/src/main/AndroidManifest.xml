@@ -14,10 +14,10 @@
 
         <!-- 通过添加 android:exported 属性并将其设置为 false，确保服务仅适用于您的应用。这可以有效阻止其他应用启动您的服务，即便在使用显式 Intent 时也如此。 -->
         <!-- android:enabled 系统是否可实例化服务 —“true”表示可以，“false”表示不可以。默认值为“true”。 -->
-        <service
-            android:name=".xy.floatwindow.FloatWindowSrv"
-            android:exported="false">
-        </service>
+<!--        <service-->
+<!--            android:name=".xy.floatwindow.FloatWindowSrv"-->
+<!--            android:exported="false">-->
+<!--        </service>-->
 
         <activity android:name=".OrdersActivity">
             <intent-filter>

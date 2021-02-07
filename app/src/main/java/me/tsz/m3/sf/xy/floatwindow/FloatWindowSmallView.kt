@@ -10,7 +10,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import me.tsz.m3.sf.R
 
-
+/*
+https://blog.csdn.net/zhaokaiqiang1992/article/details/40407491
+ */
 class FloatWindowSmallView(context: Context) : LinearLayout(context) {
     var smallWindowParams: WindowManager.LayoutParams
 
@@ -32,27 +34,25 @@ class FloatWindowSmallView(context: Context) : LinearLayout(context) {
          */
         LayoutInflater.from(context).inflate(R.layout.float_window_x, this)
 
-        val view = findViewById<View>(R.id.small_window_layout)
-        var viewWidth = view.layoutParams.width
-        var viewHeight = view.layoutParams.height
+//        val view = findViewById<View>(R.id.small_window_layout)
+//        var viewWidth = view.layoutParams.width
+//        var viewHeight = view.layoutParams.height
 //        statusBarHeight = getStatusBarHeight()
         // 4. fix this
         val percentView = findViewById<View>(R.id.percent) as TextView
         percentView.text = "悬浮窗"
 
-        smallWindowParams = WindowManager.LayoutParams().apply {
+        smallWindowParams = WindowManager.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
             type = TYPE_APPLICATION_OVERLAY // 设置显示类型为phone
             format = PixelFormat.RGBA_8888 // 显示图片格式
             flags = FLAG_NOT_TOUCH_MODAL or FLAG_NOT_FOCUSABLE // 设置交互模式
             gravity = LEFT or TOP // 设置对齐方式为左上
-            x = 10 // ScreenUtils.getScreenWidth(context)
-            y = 10 // ScreenUtils.getScreenHeight(context) / 2
-            width = viewWidth
-            height = viewHeight
+            x = 200 // ScreenUtils.getScreenWidth(context)
+            y = 100 // ScreenUtils.getScreenHeight(context) / 2
         }
     }
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return super.onTouchEvent(event)
-    }
+//    override fun onTouchEvent(event: MotionEvent?): Boolean {
+//        return super.onTouchEvent(event)
+//    }
 }

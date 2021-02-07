@@ -1,19 +1,16 @@
 package me.tsz.m3.sf
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
 import android.widget.Button
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import me.tsz.m3.sf.bean.OrderInfo
 import me.tsz.m3.sf.xy.floatwindow.FloatWindowSmallView
 
 class OrdersActivity : AppCompatActivity() {
@@ -95,22 +92,6 @@ class OrdersActivity : AppCompatActivity() {
             }
         }
 
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 0) {
-            if (!Settings.canDrawOverlays(this)) {
-                Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show()
-            } else {
-//                    Handler().postDelayed({
-//                        val intent = Intent(this@Main2Activity, FloatWinfowServices::class.java)
-//                        intent.putExtra("rangeTime", rangeTime)
-//                        hasBind = bindService(intent, mVideoServiceConnection, Context.BIND_AUTO_CREATE)
-//                        moveTaskToBack(true)
-//                    }, 1000)
-            }
-        }
     }
 
     override fun onStart() {

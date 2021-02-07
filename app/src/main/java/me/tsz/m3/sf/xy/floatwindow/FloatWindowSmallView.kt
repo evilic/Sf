@@ -3,8 +3,7 @@ package me.tsz.m3.sf.xy.floatwindow
 import android.content.Context
 import android.graphics.PixelFormat
 import android.view.*
-import android.view.Gravity.LEFT
-import android.view.Gravity.TOP
+import android.view.Gravity.*
 import android.view.WindowManager.LayoutParams.*
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -42,13 +41,15 @@ class FloatWindowSmallView(context: Context) : LinearLayout(context) {
         val percentView = findViewById<View>(R.id.percent) as TextView
         percentView.text = "悬浮窗"
 
-        smallWindowParams = WindowManager.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+        smallWindowParams = WindowManager.LayoutParams().apply {
             type = TYPE_APPLICATION_OVERLAY // 设置显示类型为phone
             format = PixelFormat.RGBA_8888 // 显示图片格式
             flags = FLAG_NOT_TOUCH_MODAL or FLAG_NOT_FOCUSABLE // 设置交互模式
-            gravity = LEFT or TOP // 设置对齐方式为左上
+            gravity = START or TOP // 设置对齐方式为左上
             x = 200 // ScreenUtils.getScreenWidth(context)
             y = 100 // ScreenUtils.getScreenHeight(context) / 2
+            width = WRAP_CONTENT
+            height = WRAP_CONTENT
         }
     }
 

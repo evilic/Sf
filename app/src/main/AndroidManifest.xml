@@ -16,8 +16,7 @@
         <!-- android:enabled 系统是否可实例化服务 —“true”表示可以，“false”表示不可以。默认值为“true”。 -->
         <service
             android:name=".xy.floatwindow.FloatWindowSrv"
-            android:exported="false"
-            android:description="为程序提供悬浮窗的功能。">
+            android:exported="false">
         </service>
 
         <activity android:name=".OrdersActivity">

@@ -1,5 +1,6 @@
 package me.tsz.m3.sf
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -9,9 +10,11 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import me.tsz.m3.sf.xy.floatwindow.FloatWindowSmallView
 
 class OrdersActivity : AppCompatActivity() {
     private val tag = "OrderActivity"
@@ -83,6 +86,9 @@ class OrdersActivity : AppCompatActivity() {
                     ), 0
                 )
             } else {
+                var windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager;
+                var firstFire = FloatWindowSmallView(this)
+                windowManager.addView(firstFire, firstFire.smallWindowParams)
 //            moveTaskToBack(true)
 //            val intent = Intent(this@Main2Activity, FloatWinfowServices::class.java)
 //            hasBind = bindService(intent, mVideoServiceConnection, Context.BIND_AUTO_CREATE)
